@@ -32,11 +32,26 @@ namespace KinectBase
                 {
                     throw new Exception("Kinectが接続されていません");
                 }
+
+                // Kinectの動作を開始
+                StartKinect(KinectSensor.KinectSensors[0]);
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
             }
+        }
+
+        /**
+         * Kinectの動作を開始する 
+         * 
+         * @param KinectSensor.KinectSensors[0]
+         * 
+         */
+        private void StartKinect(KinectSensor kinect)
+        {
+            // Kinectの動作開始
+            kinect.Start();
         }
     }
 }
