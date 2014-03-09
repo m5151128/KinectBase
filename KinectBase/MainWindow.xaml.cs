@@ -23,7 +23,20 @@ namespace KinectBase
     {
         public MainWindow()
         {
-            InitializeComponent();
+            try
+            {
+                InitializeComponent();
+
+                // Kinectの接続確認
+                if (KinectSensor.KinectSensors.Count == 0)
+                {
+                    throw new Exception("Kinectが接続されていません");
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
     }
 }
